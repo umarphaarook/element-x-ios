@@ -101,7 +101,7 @@ protocol JoinedRoomProxyProtocol: RoomProxyProtocol {
     
     func reportContent(_ eventID: String, reason: String?) async -> Result<Void, RoomProxyError>
     
-    func reportRoom(reason: String?) async -> Result<Void, RoomProxyError>
+    func reportRoom(reason: String) async -> Result<Void, RoomProxyError>
 
     func leaveRoom() async -> Result<Void, RoomProxyError>
     
@@ -168,7 +168,6 @@ protocol JoinedRoomProxyProtocol: RoomProxyProtocol {
     // MARK: - Element Call
     
     func elementCallWidgetDriver(deviceID: String) -> ElementCallWidgetDriverProtocol
-    func sendCallNotificationIfNeeded() async -> Result<Void, RoomProxyError>
     
     // MARK: - Permalinks
     

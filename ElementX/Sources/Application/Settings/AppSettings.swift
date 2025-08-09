@@ -16,10 +16,13 @@ import SwiftUI
 protocol CommonSettingsProtocol {
     var logLevel: LogLevel { get }
     var traceLogPacks: Set<TraceLogPack> { get }
+    var bugReportRageshakeURL: RemotePreference<RageshakeConfiguration> { get }
+    
     var enableOnlySignedDeviceIsolationMode: Bool { get }
     var enableKeyShareOnInvite: Bool { get }
-    var hideQuietNotificationAlerts: Bool { get }
     var threadsEnabled: Bool { get }
+    var hideQuietNotificationAlerts: Bool { get }
+    var multipleAttachmentUploadEnabled: Bool { get }
 }
 
 /// Store Element specific app settings.
@@ -57,7 +60,8 @@ final class AppSettings {
         case knockingEnabled
         case threadsEnabled
         case developerOptionsEnabled
-        case sharePosEnabled
+        case sharePosEnabledV2
+        case multipleAttachmentUploadEnabled
         
         // Doug's tweaks 🔧
         case hideUnreadMessagesBadge
@@ -65,10 +69,19 @@ final class AppSettings {
     }
     
     private static var suiteName: String = InfoPlistReader.main.appGroupIdentifier
-    private static var remoteSuiteName = "\(InfoPlistReader.main.appGroupIdentifier).remote"
 
     /// UserDefaults to be used on reads and writes.
     private static var store: UserDefaults! = UserDefaults(suiteName: suiteName)
+    
+    /// Whether or not the app is a development build that isn't in production.
+    static var isDevelopmentBuild: Bool = {
+        #if DEBUG
+        true
+        #else
+        let apps = ["io.element.elementx.nightly", "io.element.elementx.pr"]
+        return apps.contains(InfoPlistReader.main.baseBundleIdentifier)
+        #endif
+    }()
     
     #if IS_MAIN_APP
         
@@ -135,16 +148,6 @@ final class AppSettings {
     
     // MARK: - Application
     
-    /// Whether or not the app is a development build that isn't in production.
-    static var isDevelopmentBuild: Bool = {
-        #if DEBUG
-        true
-        #else
-        let apps = ["io.element.elementx.nightly", "io.element.elementx.pr"]
-        return apps.contains(InfoPlistReader.main.baseBundleIdentifier)
-        #endif
-    }()
-    
     /// The last known version of the app that was launched on this device, which is
     /// used to detect when migrations should be run. When `nil` the app may have been
     /// deleted between runs so should clear data in the shared container and keychain.
@@ -189,6 +192,9 @@ final class AppSettings {
     private(set) var elementWebHosts = ["app.element.io", "staging.element.io", "develop.element.io"]
     /// The domain that account provisioning links will be hosted on - used for handling the links.
     private(set) var accountProvisioningHost = "mobile.element.io"
+    /// The App Store URL for Element Pro, shown to the user when a homeserver requires that app.
+    /// **Note:** This property isn't overridable as it in unexpected for forks to come across the error (or to even have a "Pro" app).
+    let elementProAppStoreURL: URL = "https://apps.apple.com/app/element-pro-for-work/id6502951615"
     
     @UserPreference(key: UserDefaultsKeys.appAppearance, defaultValue: .system, storageType: .userDefaults(store))
     var appAppearance: AppAppearance
@@ -249,8 +255,7 @@ final class AppSettings {
     var pusherProfileTag: String?
         
     // MARK: - Bug report
-
-    let bugReportRageshakeURL: URL? = Secrets.rageshakeURL.map { URL(string: $0)! } // swiftlint:disable:this force_unwrapping
+    
     let bugReportSentryURL: URL? = Secrets.sentryDSN.map { URL(string: $0)! } // swiftlint:disable:this force_unwrapping
     let bugReportSentryRustURL: URL? = Secrets.sentryRustDSN.map { URL(string: $0)! } // swiftlint:disable:this force_unwrapping
     /// The name allocated by the bug report server
@@ -344,10 +349,10 @@ final class AppSettings {
     @UserPreference(key: UserDefaultsKeys.knockingEnabled, defaultValue: false, storageType: .userDefaults(store))
     var knockingEnabled
     
-    @UserPreference(key: UserDefaultsKeys.threadsEnabled, defaultValue: isDevelopmentBuild, storageType: .userDefaults(store))
+    @UserPreference(key: UserDefaultsKeys.developerOptionsEnabled, defaultValue: isDevelopmentBuild, storageType: .userDefaults(store))
     var developerOptionsEnabled
     
-    @UserPreference(key: UserDefaultsKeys.sharePosEnabled, defaultValue: false, storageType: .userDefaults(store))
+    @UserPreference(key: UserDefaultsKeys.sharePosEnabledV2, defaultValue: true, storageType: .userDefaults(store))
     var sharePosEnabled
     
     #endif
@@ -360,6 +365,8 @@ final class AppSettings {
     @UserPreference(key: UserDefaultsKeys.traceLogPacks, defaultValue: [], storageType: .userDefaults(store))
     var traceLogPacks: Set<TraceLogPack>
     
+    let bugReportRageshakeURL: RemotePreference<RageshakeConfiguration> = .init(Secrets.rageshakeURL.map { .url(URL(string: $0)!) } ?? .disabled) // swiftlint:disable:this force_unwrapping
+    
     /// Configuration to enable only signed device isolation mode for  crypto. In this mode only devices signed by their owner will be considered in e2ee rooms.
     @UserPreference(key: UserDefaultsKeys.enableOnlySignedDeviceIsolationMode, defaultValue: false, storageType: .userDefaults(store))
     var enableOnlySignedDeviceIsolationMode
@@ -368,11 +375,14 @@ final class AppSettings {
     @UserPreference(key: UserDefaultsKeys.enableKeyShareOnInvite, defaultValue: false, storageType: .userDefaults(store))
     var enableKeyShareOnInvite
 
+    @UserPreference(key: UserDefaultsKeys.threadsEnabled, defaultValue: false, storageType: .userDefaults(store))
+    var threadsEnabled
+    
     @UserPreference(key: UserDefaultsKeys.hideQuietNotificationAlerts, defaultValue: false, storageType: .userDefaults(store))
     var hideQuietNotificationAlerts
     
-    @UserPreference(key: UserDefaultsKeys.threadsEnabled, defaultValue: false, storageType: .userDefaults(store))
-    var threadsEnabled
+    @UserPreference(key: UserDefaultsKeys.multipleAttachmentUploadEnabled, defaultValue: isDevelopmentBuild, storageType: .userDefaults(store))
+    var multipleAttachmentUploadEnabled
 }
 
 extension AppSettings: CommonSettingsProtocol { }

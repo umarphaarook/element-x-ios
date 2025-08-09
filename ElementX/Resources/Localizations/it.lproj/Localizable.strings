@@ -3,6 +3,7 @@
 "a11y_avatar" = "Avatar";
 "a11y_delete" = "Elimina";
 "a11y_edit_avatar" = "Edit avatar";
+"a11y_edit_room_address_hint" = "The full address will be %1$@";
 "a11y_hide_password" = "Nascondi password";
 "a11y_join_call" = "Entra in chiamata";
 "a11y_jump_to_bottom" = "Vai alla fine";
@@ -30,6 +31,7 @@
 "a11y_show_password" = "Mostra password";
 "a11y_start_call" = "Avvia una chiamata";
 "a11y_time_limited_action_required" = "Time limited action required";
+"a11y_tombstoned_room" = "Tombstoned room";
 "a11y_user_menu" = "Menu utente";
 "a11y_view_avatar" = "Visualizza avatar";
 "a11y_view_details" = "Visualizza dettagli";
@@ -37,6 +39,7 @@
 "a11y_voice_message_record" = "Registra un messaggio vocale.";
 "a11y_voice_message_stop_recording" = "Ferma la registrazione";
 "a11y.encryption_details" = "Encryption details";
+"a11y.move_the_map_to_my_location" = "Move the map to my location";
 "a11y.other_user_avatar" = "Other user's avatar";
 "a11y.room_avatar" = "Room avatar";
 "a11y.user_avatar" = "User avatar";
@@ -237,6 +240,7 @@
 "common_poll_summary" = "Sondaggio: %1$@";
 "common_poll_total_votes" = "Voti totali: %1$@";
 "common_poll_undisclosed_text" = "I risultati verranno mostrati al termine del sondaggio";
+"common_preparing" = "Preparing…";
 "common_privacy_policy" = "Informativa sulla privacy";
 "common_reaction" = "Reazione";
 "common_reactions" = "Reazioni";
@@ -369,6 +373,9 @@
 "leave_conversation_alert_subtitle" = "Vuoi davvero abbandonare questa conversazione? La conversazione non è pubblica e non potrai rientrare senza un invito.";
 "leave_room_alert_empty_subtitle" = "Sei sicuro di voler lasciare questa stanza? Sei l'unica persona presente. Se esci, nessuno potrà unirsi in futuro, te compreso.";
 "leave_room_alert_private_subtitle" = "Sei sicuro di voler lasciare questa stanza? Questa stanza non è pubblica e non potrai rientrare senza un invito.";
+"leave_room_alert_select_new_owner_action" = "Choose owners";
+"leave_room_alert_select_new_owner_subtitle" = "You're the only owner of this room. You need to transfer ownership to someone else before you leave the room.";
+"leave_room_alert_select_new_owner_title" = "Transfer ownership";
 "leave_room_alert_subtitle" = "Sei sicuro di voler lasciare la stanza?";
 "login_initial_device_name_ios" = "%1$@ iOS";
 "notification_channel_call" = "Chiamata";
@@ -455,6 +462,7 @@
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_description" = "Potranno unirsi di nuovo alla stanza se invitati";
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_title" = "Sei sicuro di voler sbloccare questo membro?";
 "screen_bottom_sheet_manage_room_member_unbanning_user" = "Rimuovendo il ban di %1$@";
+"screen_bug_report_a11y_screenshot" = "Screenshot";
 "screen_create_poll_option_accessibility_label" = "%1$@: %2$@";
 "screen_create_poll_options_section_title" = "Risposte";
 "screen_create_poll_remove_accessibility_label" = "Rimuovi %1$@";
@@ -467,14 +475,11 @@
 "screen_create_room_room_address_section_footer" = "Affinché questa stanza sia visibile nell'elenco delle stanze pubbliche, è necessario un indirizzo della stanza.";
 "screen_create_room_room_visibility_section_title" = "Visibilità della stanza";
 "screen_decline_and_block_block_user_option_description" = "Non vedrai alcun messaggio o invito ad una stanza da parte di questo utente";
-"screen_decline_and_block_block_user_option_title" = "Blocca utente";
 "screen_decline_and_block_report_user_option_description" = "Segnala questa stanza al fornitore del tuo account.";
 "screen_decline_and_block_report_user_reason_placeholder" = "Descrivi il motivo della segnalazione...";
 "screen_decline_and_block_title" = "Rifiuta e blocca";
 "screen_edit_room_address_room_address_section_footer" = "Avrai bisogno di un indirizzo della stanza per renderla visibile nell'elenco.";
 "screen_edit_room_address_title" = "Indirizzo della stanza";
-"screen_home_tab_chats" = "Chats";
-"screen_home_tab_spaces" = "Spaces";
 "screen_join_room_cancel_knock_action" = "Cancella richiesta";
 "screen_join_room_cancel_knock_alert_confirmation" = "Sì, annulla";
 "screen_join_room_cancel_knock_alert_description" = "Sei sicuro di voler annullare la tua richiesta di accesso a questa stanza?";
@@ -483,6 +488,7 @@
 "screen_join_room_decline_and_block_alert_message" = "Sei sicuro di voler rifiutare l'invito a entrare in questa stanza? Ciò impedirà a %1$@ di contattarti o invitarti nuovamente in una stanza.";
 "screen_join_room_decline_and_block_alert_title" = "Rifiuta invito e blocca";
 "screen_join_room_decline_and_block_button_title" = "Rifiuta e blocca";
+"screen_join_room_knock_message_characters_count" = "Allowed characters %1$d of %2$d";
 "screen_join_room_knock_message_description" = "Messaggio (opzionale)";
 "screen_join_room_knock_sent_description" = "Riceverai un invito a entrare nella stanza se la tua richiesta viene accettata.";
 "screen_join_room_knock_sent_title" = "Richiesta di accesso inviata";
@@ -519,8 +525,11 @@
 "screen_media_details_uploaded_by" = "Caricato da";
 "screen_media_details_uploaded_on" = "Caricato il";
 "screen_media_upload_preview_caption_warning" = "Le didascalie potrebbero non essere visibili agli utenti di app meno recenti.";
+"screen_media_upload_preview_error_could_not_be_uploaded" = "The file could not be uploaded.";
 "screen_media_upload_preview_error_failed_processing" = "Elaborazione del file multimediale da caricare fallita, riprova.";
 "screen_media_upload_preview_error_failed_sending" = "Caricamento del file multimediale fallito, riprova.";
+"screen_media_upload_preview_error_too_large_message" = "The maximum file size allowed is %1$@.";
+"screen_media_upload_preview_error_too_large_title" = "The file is too large to upload";
 "screen_pinned_timeline_empty_state_description" = "Premi su un messaggio e scegli “%1$@” per includerlo qui.";
 "screen_pinned_timeline_empty_state_headline" = "Fissa i messaggi importanti così che possano essere trovati facilmente";
 "screen_push_history_title" = "Cronologia push";
@@ -582,6 +591,9 @@
 "screen_security_and_privacy_room_publishing_section_header" = "Pubblicazione della stanza";
 "screen_security_and_privacy_room_visibility_section_footer" = "Gli indirizzi delle stanze sono modi per trovare e accedere a queste ultime. Questo assicura anche che tu possa condividere facilmente la tua stanza con altri. L'indirizzo è anche necessario per rendere la stanza visibile in %1$@ nell'elenco delle stanze pubbliche.";
 "screen_security_and_privacy_title" = "Sicurezza e privacy";
+"screen_space_list_description" = "Spaces you have created or joined.";
+"screen_space_list_details" = "%1$@ • %2$@";
+"screen_space_list_title" = "Spaces";
 "screen_start_chat_join_room_by_address_action" = "Accedi alla stanza tramite indirizzo";
 "screen_start_chat_join_room_by_address_invalid_address" = "Indirizzo non valido";
 "screen_start_chat_join_room_by_address_placeholder" = "Inserisci...";
@@ -659,6 +671,9 @@
 "screen_change_account_provider_other" = "Altro";
 "screen_change_account_provider_subtitle" = "Utilizza un provider di account diverso, ad esempio il tuo server privato o un account di lavoro.";
 "screen_change_account_provider_title" = "Cambia fornitore dell'account";
+"screen_change_server_error_element_pro_required_action_ios" = "App Store";
+"screen_change_server_error_element_pro_required_message" = "The Element Pro app is required on %1$@. Please download it from the store.";
+"screen_change_server_error_element_pro_required_title" = "Element Pro required";
 "screen_change_server_error_invalid_homeserver" = "Non siamo riusciti a raggiungere questo homeserver. Verifica di aver inserito correttamente l'URL. Se l'URL è corretto, contatta l'amministratore del homeserver per ulteriore assistenza.";
 "screen_change_server_error_invalid_well_known" = "Il server non è disponibile per un problema nel file well-known:\n%1$@";
 "screen_change_server_error_no_sliding_sync_message" = "Il fornitore di account selezionato non supporta la Sliding sync. Per utilizzare %1$@ è necessario un aggiornamento del server.";
@@ -921,12 +936,16 @@
 "screen_room_change_role_administrators_title" = "Modifica amministratori";
 "screen_room_change_role_confirm_add_admin_description" = "Non potrai annullare questa azione. Stai promuovendo l'utente al tuo stesso livello di potere.";
 "screen_room_change_role_confirm_add_admin_title" = "Aggiungi amministratore?";
+"screen_room_change_role_confirm_change_owners_description" = "You will not be able to undo this action. You are transferring the ownership to the selected users. Once you leave this will be permanent.";
+"screen_room_change_role_confirm_change_owners_title" = "Transfer ownership?";
 "screen_room_change_role_confirm_demote_self_action" = "Declassa";
 "screen_room_change_role_confirm_demote_self_description" = "Non potrai annullare questa modifica perché ti stai declassando, se sei l'ultimo utente privilegiato nella stanza, sarà impossibile riottenere i privilegi.";
 "screen_room_change_role_confirm_demote_self_title" = "Declassare te stesso?";
 "screen_room_change_role_invited_member_name" = "%1$@ (In attesa)";
 "screen_room_change_role_moderators_admin_section_footer" = "Gli amministratori hanno automaticamente i privilegi di moderatore";
+"screen_room_change_role_moderators_owner_section_footer" = "Owners automatically have admin privileges.";
 "screen_room_change_role_moderators_title" = "Modifica moderatori";
+"screen_room_change_role_owners_title" = "Choose Owners";
 "screen_room_change_role_unsaved_changes_description" = "Hai delle modifiche non salvate.";
 "screen_room_details_add_topic_title" = "Aggiungi argomento";
 "screen_room_details_already_a_member" = "Già membro";
@@ -973,6 +992,7 @@
 "screen_room_member_list_pending_header_title" = "In attesa";
 "screen_room_member_list_role_administrator" = "Amministratore";
 "screen_room_member_list_role_moderator" = "Moderatore";
+"screen_room_member_list_role_owner" = "Owner";
 "screen_room_member_list_room_members_header_title" = "Membri della stanza";
 "screen_room_member_list_unbanning_user" = "Riammissione di %1$@";
 "screen_room_notification_settings_allow_custom" = "Consenti impostazione personalizzata";
@@ -990,12 +1010,14 @@
 "screen_room_retry_send_menu_send_again_action" = "Invia di nuovo";
 "screen_room_retry_send_menu_title" = "Il tuo messaggio non è stato inviato";
 "screen_room_roles_and_permissions_admins" = "Amministratori";
+"screen_room_roles_and_permissions_admins_and_owners" = "Admins and owners";
 "screen_room_roles_and_permissions_change_my_role" = "Cambia il mio ruolo";
 "screen_room_roles_and_permissions_change_role_demote_to_member" = "Declassa a membro";
 "screen_room_roles_and_permissions_change_role_demote_to_moderator" = "Declassa a moderatore";
 "screen_room_roles_and_permissions_member_moderation" = "Moderazione dei membri";
 "screen_room_roles_and_permissions_messages_and_content" = "Messaggi e contenuti";
 "screen_room_roles_and_permissions_moderators" = "Moderatori";
+"screen_room_roles_and_permissions_owners" = "Owners";
 "screen_room_roles_and_permissions_permissions_header" = "Autorizzazioni";
 "screen_room_roles_and_permissions_reset" = "Reimpostare le autorizzazioni";
 "screen_room_roles_and_permissions_reset_confirm_description" = "Una volta reimpostate le autorizzazioni, perderai le impostazioni correnti.";
@@ -1243,6 +1265,9 @@
 "notification_room_action_mark_as_read" = "Segna come letto";
 "notification_room_action_quick_reply" = "Risposta rapida";
 "screen_create_room_room_address_section_title" = "Indirizzo della stanza";
+"screen_decline_and_block_block_user_option_title" = "Blocca utente";
+"screen_home_tab_chats" = "Tutte le conversazioni";
+"screen_home_tab_spaces" = "Spaces";
 "screen_knock_requests_list_title" = "Richieste di accesso";
 "screen_pinned_timeline_screen_title_empty" = "Messaggi fissati";
 "screen_room_mentions_at_room_title" = "Tutti";

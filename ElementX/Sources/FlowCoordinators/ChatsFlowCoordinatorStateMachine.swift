@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import SwiftState
 
-class UserSessionFlowCoordinatorStateMachine {
+class ChatsFlowCoordinatorStateMachine {
     /// States the AppCoordinator can find itself in
     enum State: StateType {
         /// The initial state, used before the coordinator starts
@@ -110,11 +110,6 @@ class UserSessionFlowCoordinatorStateMachine {
         case showStartChatScreen
         /// Start chat has been dismissed
         case dismissedStartChatScreen
-                
-        /// Logout has been requested and this is the last session
-        case showLogoutConfirmationScreen
-        /// Logout has been cancelled
-        case dismissedLogoutConfirmationScreen
         
         /// Request presentation of the room directory search screen.
         case showRoomDirectorySearchScreen
@@ -138,7 +133,7 @@ class UserSessionFlowCoordinatorStateMachine {
     
     private let stateMachine: StateMachine<State, Event>
     
-    var state: UserSessionFlowCoordinatorStateMachine.State {
+    var state: ChatsFlowCoordinatorStateMachine.State {
         stateMachine.state
     }
     
@@ -185,11 +180,6 @@ class UserSessionFlowCoordinatorStateMachine {
             case (.roomList(let roomListSelectedRoomID), .showStartChatScreen):
                 return .startChatScreen(roomListSelectedRoomID: roomListSelectedRoomID)
             case (.startChatScreen(let roomListSelectedRoomID), .dismissedStartChatScreen):
-                return .roomList(roomListSelectedRoomID: roomListSelectedRoomID)
-                            
-            case (.roomList(let roomListSelectedRoomID), .showLogoutConfirmationScreen):
-                return .logoutConfirmationScreen(roomListSelectedRoomID: roomListSelectedRoomID)
-            case (.logoutConfirmationScreen(let roomListSelectedRoomID), .dismissedLogoutConfirmationScreen):
                 return .roomList(roomListSelectedRoomID: roomListSelectedRoomID)
                 
             case (.roomList(let roomListSelectedRoomID), .showRoomDirectorySearchScreen):

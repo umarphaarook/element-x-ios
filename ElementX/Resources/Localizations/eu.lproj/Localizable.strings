@@ -3,6 +3,7 @@
 "a11y_avatar" = "Abatarra";
 "a11y_delete" = "Ezabatu";
 "a11y_edit_avatar" = "Edit avatar";
+"a11y_edit_room_address_hint" = "The full address will be %1$@";
 "a11y_hide_password" = "Ezkutatu pasahitza";
 "a11y_join_call" = "Batu deira";
 "a11y_jump_to_bottom" = "Joan behera";
@@ -30,6 +31,7 @@
 "a11y_show_password" = "Erakutsi pasahitza";
 "a11y_start_call" = "Hasi dei bat";
 "a11y_time_limited_action_required" = "Time limited action required";
+"a11y_tombstoned_room" = "Tombstoned room";
 "a11y_user_menu" = "Erabiltzailea-menua";
 "a11y_view_avatar" = "View avatar";
 "a11y_view_details" = "Ikusi xehetasunak";
@@ -37,6 +39,7 @@
 "a11y_voice_message_record" = "Grabatu ahots-mezua.";
 "a11y_voice_message_stop_recording" = "Utzi grabatzeari";
 "a11y.encryption_details" = "Encryption details";
+"a11y.move_the_map_to_my_location" = "Move the map to my location";
 "a11y.other_user_avatar" = "Other user's avatar";
 "a11y.room_avatar" = "Room avatar";
 "a11y.user_avatar" = "User avatar";
@@ -237,6 +240,7 @@
 "common_poll_summary" = "Inkesta:%1$@";
 "common_poll_total_votes" = "Boto guztira: %1$@";
 "common_poll_undisclosed_text" = "Emaitzak inkesta amaitu ondoren erakutsiko dira";
+"common_preparing" = "Preparing…";
 "common_privacy_policy" = "Pribatutasun-politika";
 "common_reaction" = "Erreakzioa";
 "common_reactions" = "Erreakzioak";
@@ -369,6 +373,9 @@
 "leave_conversation_alert_subtitle" = "Ziur elkarrizketa utzi nahi duzula? Ez da publikoa eta ezingo zara berriro batu gonbidapenik gabe.";
 "leave_room_alert_empty_subtitle" = "Ziur gelatik irten nahi duzula? Dagoen pertsona bakarra zara. Ateratzen bazara ezingo da inor batu etorkizunean, ezta zeu ere.";
 "leave_room_alert_private_subtitle" = "Ziur gelatik irten nahi duzula? Gela hau ez da publikoa eta ezingo zara berriro batu gonbidapenik gabe.";
+"leave_room_alert_select_new_owner_action" = "Choose owners";
+"leave_room_alert_select_new_owner_subtitle" = "You're the only owner of this room. You need to transfer ownership to someone else before you leave the room.";
+"leave_room_alert_select_new_owner_title" = "Transfer ownership";
 "leave_room_alert_subtitle" = "Ziur gelatik atera nahi duzula?";
 "login_initial_device_name_ios" = "%1$@ iOS";
 "notification_channel_call" = "Deia";
@@ -455,6 +462,7 @@
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_description" = "They would be able to join the room again if invited";
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_title" = "Are you sure you want to unban this member?";
 "screen_bottom_sheet_manage_room_member_unbanning_user" = "Unbanning %1$@";
+"screen_bug_report_a11y_screenshot" = "Screenshot";
 "screen_create_poll_option_accessibility_label" = "%1$@: %2$@";
 "screen_create_poll_options_section_title" = "Options";
 "screen_create_poll_remove_accessibility_label" = "Remove %1$@";
@@ -467,14 +475,11 @@
 "screen_create_room_room_address_section_footer" = "In order for this room to be visible in the public room directory, you will need a room address.";
 "screen_create_room_room_visibility_section_title" = "Gelaren ikusgarritasuna";
 "screen_decline_and_block_block_user_option_description" = "You will not see any messages or room invites from this user";
-"screen_decline_and_block_block_user_option_title" = "Block user";
 "screen_decline_and_block_report_user_option_description" = "Report this room to your account provider.";
 "screen_decline_and_block_report_user_reason_placeholder" = "Describe the reason to report…";
 "screen_decline_and_block_title" = "Decline and block";
 "screen_edit_room_address_room_address_section_footer" = "You’ll need a room address in order to make it visible in the directory.";
 "screen_edit_room_address_title" = "Gelaren helbidea";
-"screen_home_tab_chats" = "Chats";
-"screen_home_tab_spaces" = "Spaces";
 "screen_join_room_cancel_knock_action" = "Utzi eskaera bertan behera";
 "screen_join_room_cancel_knock_alert_confirmation" = "Bai, utzi bertan behera";
 "screen_join_room_cancel_knock_alert_description" = "Are you sure that you want to cancel your request to join this room?";
@@ -483,6 +488,7 @@
 "screen_join_room_decline_and_block_alert_message" = "Are you sure you want to decline the invite to join this room? This will also prevent %1$@ from contacting you or inviting you to rooms.";
 "screen_join_room_decline_and_block_alert_title" = "Decline invite & block";
 "screen_join_room_decline_and_block_button_title" = "Decline and block";
+"screen_join_room_knock_message_characters_count" = "Allowed characters %1$d of %2$d";
 "screen_join_room_knock_message_description" = "Mezua (aukerakoa)";
 "screen_join_room_knock_sent_description" = "You will receive an invite to join the room if your request is accepted.";
 "screen_join_room_knock_sent_title" = "Sartzeko eskaera bidali da";
@@ -519,8 +525,11 @@
 "screen_media_details_uploaded_by" = "Nork igota:";
 "screen_media_details_uploaded_on" = "Noiz igota:";
 "screen_media_upload_preview_caption_warning" = "Captions might not be visible to people using older apps.";
+"screen_media_upload_preview_error_could_not_be_uploaded" = "The file could not be uploaded.";
 "screen_media_upload_preview_error_failed_processing" = "Failed processing media to upload, please try again.";
 "screen_media_upload_preview_error_failed_sending" = "Huts egin du multimedia igotzeak, saiatu berriro.";
+"screen_media_upload_preview_error_too_large_message" = "The maximum file size allowed is %1$@.";
+"screen_media_upload_preview_error_too_large_title" = "The file is too large to upload";
 "screen_pinned_timeline_empty_state_description" = "Press on a message and choose “%1$@” to include here.";
 "screen_pinned_timeline_empty_state_headline" = "Pin important messages so that they can be easily discovered";
 "screen_push_history_title" = "Push history";
@@ -582,6 +591,9 @@
 "screen_security_and_privacy_room_publishing_section_header" = "Room publishing";
 "screen_security_and_privacy_room_visibility_section_footer" = "Room addresses are ways to find and access rooms. This also ensures you can easily share your room with others.\nThe address is also required to make the room visible in %1$@ public room directory.";
 "screen_security_and_privacy_title" = "Segurtasuna eta pribatutasuna";
+"screen_space_list_description" = "Spaces you have created or joined.";
+"screen_space_list_details" = "%1$@ • %2$@";
+"screen_space_list_title" = "Spaces";
 "screen_start_chat_join_room_by_address_action" = "Join room by address";
 "screen_start_chat_join_room_by_address_invalid_address" = "Not a valid address";
 "screen_start_chat_join_room_by_address_placeholder" = "Sartu…";
@@ -659,6 +671,9 @@
 "screen_change_account_provider_other" = "Beste bat";
 "screen_change_account_provider_subtitle" = "Erabili beste kontu-hornitzaile bat, hala nola zure zerbitzari pribatua edo laneko kontu bat.";
 "screen_change_account_provider_title" = "Aldatu kontu-hornitzailea";
+"screen_change_server_error_element_pro_required_action_ios" = "App Store";
+"screen_change_server_error_element_pro_required_message" = "The Element Pro app is required on %1$@. Please download it from the store.";
+"screen_change_server_error_element_pro_required_title" = "Element Pro required";
 "screen_change_server_error_invalid_homeserver" = "We couldn't reach this homeserver. Please check that you have entered the homeserver URL correctly. If the URL is correct, contact your homeserver administrator for further help.";
 "screen_change_server_error_invalid_well_known" = "Server isn't available due to an issue in the .well-known file:\n%1$@";
 "screen_change_server_error_no_sliding_sync_message" = "The selected account provider does not support sliding sync. An upgrade to the server is needed to use %1$@.";
@@ -921,12 +936,16 @@
 "screen_room_change_role_administrators_title" = "Editatu administratzaileak";
 "screen_room_change_role_confirm_add_admin_description" = "You will not be able to undo this action. You are promoting the user to have the same power level as you.";
 "screen_room_change_role_confirm_add_admin_title" = "Administratzailea gehitu?";
+"screen_room_change_role_confirm_change_owners_description" = "You will not be able to undo this action. You are transferring the ownership to the selected users. Once you leave this will be permanent.";
+"screen_room_change_role_confirm_change_owners_title" = "Transfer ownership?";
 "screen_room_change_role_confirm_demote_self_action" = "Jaitsi mailaz";
 "screen_room_change_role_confirm_demote_self_description" = "Ezin izango duzu hau aldatu zure burua mailaz jaisten ari zarelako, zu bazara gelan baimenak dituen azken erabiltzailea ezin izango dira baimenak berreskuratu.";
 "screen_room_change_role_confirm_demote_self_title" = "Zure burua mailaz jaitsi?";
 "screen_room_change_role_invited_member_name" = "%1$@ (zain)";
 "screen_room_change_role_moderators_admin_section_footer" = "Administratzaileek automatikoki dute moderatzaile-pribilegioak";
+"screen_room_change_role_moderators_owner_section_footer" = "Owners automatically have admin privileges.";
 "screen_room_change_role_moderators_title" = "Editatu moderatzaileak";
+"screen_room_change_role_owners_title" = "Choose Owners";
 "screen_room_change_role_unsaved_changes_description" = "Gorde gabeko aldaketak dituzu.";
 "screen_room_details_add_topic_title" = "Gehitu hizketagaia";
 "screen_room_details_already_a_member" = "Kidea da dagoeneko";
@@ -973,6 +992,7 @@
 "screen_room_member_list_pending_header_title" = "Zain";
 "screen_room_member_list_role_administrator" = "Kudeatzailea";
 "screen_room_member_list_role_moderator" = "Moderatzailea";
+"screen_room_member_list_role_owner" = "Owner";
 "screen_room_member_list_room_members_header_title" = "Gelako kideak";
 "screen_room_member_list_unbanning_user" = "%1$@(r)i debekua kentzen";
 "screen_room_notification_settings_allow_custom" = "Allow custom setting";
@@ -990,12 +1010,14 @@
 "screen_room_retry_send_menu_send_again_action" = "Bidali berriro";
 "screen_room_retry_send_menu_title" = "Huts egin du mezuaren bidalketak";
 "screen_room_roles_and_permissions_admins" = "Administratzaileak";
+"screen_room_roles_and_permissions_admins_and_owners" = "Admins and owners";
 "screen_room_roles_and_permissions_change_my_role" = "Aldatu nire rola";
 "screen_room_roles_and_permissions_change_role_demote_to_member" = "Jaitsi maila, kidera";
 "screen_room_roles_and_permissions_change_role_demote_to_moderator" = "Jaitsi maila, moderatzailera";
 "screen_room_roles_and_permissions_member_moderation" = "Kideen moderazioa";
 "screen_room_roles_and_permissions_messages_and_content" = "Mezuak eta edukiak";
 "screen_room_roles_and_permissions_moderators" = "Moderatzaileak";
+"screen_room_roles_and_permissions_owners" = "Owners";
 "screen_room_roles_and_permissions_permissions_header" = "Baimenak";
 "screen_room_roles_and_permissions_reset" = "Berrezarri baimenak";
 "screen_room_roles_and_permissions_reset_confirm_description" = "Baimenak berrezarritakoan, uneko ezarpenak galduko dituzu.";
@@ -1243,6 +1265,9 @@
 "notification_room_action_mark_as_read" = "Markatu irakurritzat";
 "notification_room_action_quick_reply" = "Erantzun azkarra";
 "screen_create_room_room_address_section_title" = "Gelaren helbidea";
+"screen_decline_and_block_block_user_option_title" = "Blokeatu erabiltzailea";
+"screen_home_tab_chats" = "Txatak";
+"screen_home_tab_spaces" = "Spaces";
 "screen_knock_requests_list_title" = "Sartzeko eskaerak";
 "screen_pinned_timeline_screen_title_empty" = "Finkatutako mezuak";
 "screen_room_mentions_at_room_title" = "Guztiak";

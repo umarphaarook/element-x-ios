@@ -50,7 +50,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
         switch configuration.kind {
         case .genericCallLink(let url):
             widgetDriver = GenericCallLinkWidgetDriver(url: url)
-        case .roomCall(let roomProxy, let clientProxy, _, _, _, _, _):
+        case .roomCall(let roomProxy, let clientProxy, _, _, _, _):
             guard let deviceID = clientProxy.deviceID else { fatalError("Missing device ID for the call.") }
             widgetDriver = roomProxy.elementCallWidgetDriver(deviceID: deviceID)
         }
@@ -174,7 +174,7 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
             state.url = url
             // We need widget messaging to work before enabling CallKit, otherwise mute, hangup etc do nothing.
             
-        case .roomCall(let roomProxy, _, let clientID, let elementCallBaseURL, let elementCallBaseURLOverride, let colorScheme, let notifyOtherParticipants):
+        case .roomCall(let roomProxy, _, let clientID, let elementCallBaseURL, let elementCallBaseURLOverride, let colorScheme):
             Task { [weak self] in
                 guard let self else { return }
                 
@@ -185,13 +185,23 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
                 }
                 
                 // We only set the analytics configuration if analytics are enabled
-                let analyticsConfiguration = analyticsService.isEnabled ? ElementCallAnalyticsConfiguration(posthogAPIHost: appSettings.elementCallPosthogAPIHost,
-                                                                                                            posthogAPIKey: appSettings.elementCallPosthogAPIKey,
-                                                                                                            sentryDSN: appSettings.elementCallPosthogSentryDSN) : nil
+                let analyticsConfiguration: ElementCallAnalyticsConfiguration? = if analyticsService.isEnabled {
+                    .init(posthogAPIHost: appSettings.elementCallPosthogAPIHost,
+                          posthogAPIKey: appSettings.elementCallPosthogAPIKey,
+                          sentryDSN: appSettings.elementCallPosthogSentryDSN)
+                } else {
+                    nil
+                }
+                let rageshakeURL: String? = if case let .url(baseURL) = appSettings.bugReportRageshakeURL.publisher.value {
+                    baseURL.absoluteString
+                } else {
+                    nil
+                }
+                
                 switch await widgetDriver.start(baseURL: baseURL,
                                                 clientID: clientID,
                                                 colorScheme: colorScheme,
-                                                rageshakeURL: appSettings.bugReportRageshakeURL?.absoluteString,
+                                                rageshakeURL: rageshakeURL,
                                                 analyticsConfiguration: analyticsConfiguration) {
                 case .success(let url):
                     state.url = url
@@ -207,10 +217,6 @@ class CallScreenViewModel: CallScreenViewModelType, CallScreenViewModelProtocol 
                 
                 await elementCallService.setupCallSession(roomID: roomProxy.id,
                                                           roomDisplayName: roomProxy.infoPublisher.value.displayName ?? roomProxy.id)
-                
-                if notifyOtherParticipants {
-                    _ = await roomProxy.sendCallNotificationIfNeeded()
-                }
             }
         }
     }

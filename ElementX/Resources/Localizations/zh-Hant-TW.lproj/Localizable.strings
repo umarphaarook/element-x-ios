@@ -3,6 +3,7 @@
 "a11y_avatar" = "大頭貼";
 "a11y_delete" = "刪除";
 "a11y_edit_avatar" = "Edit avatar";
+"a11y_edit_room_address_hint" = "The full address will be %1$@";
 "a11y_hide_password" = "隱藏密碼";
 "a11y_join_call" = "加入通話";
 "a11y_jump_to_bottom" = "跳至底部";
@@ -30,6 +31,7 @@
 "a11y_show_password" = "顯示密碼";
 "a11y_start_call" = "開始通話";
 "a11y_time_limited_action_required" = "Time limited action required";
+"a11y_tombstoned_room" = "Tombstoned room";
 "a11y_user_menu" = "使用者選單";
 "a11y_view_avatar" = "View avatar";
 "a11y_view_details" = "檢視詳細資訊";
@@ -37,6 +39,7 @@
 "a11y_voice_message_record" = "錄製語音訊息。";
 "a11y_voice_message_stop_recording" = "停止錄音";
 "a11y.encryption_details" = "Encryption details";
+"a11y.move_the_map_to_my_location" = "Move the map to my location";
 "a11y.other_user_avatar" = "Other user's avatar";
 "a11y.room_avatar" = "Room avatar";
 "a11y.user_avatar" = "User avatar";
@@ -237,6 +240,7 @@
 "common_poll_summary" = "投票：%1$@";
 "common_poll_total_votes" = "總票數：%1$@";
 "common_poll_undisclosed_text" = "結果將在投票結束後公佈";
+"common_preparing" = "Preparing…";
 "common_privacy_policy" = "隱私權政策";
 "common_reaction" = "回應";
 "common_reactions" = "回應";
@@ -369,6 +373,9 @@
 "leave_conversation_alert_subtitle" = "您確定要離開對話嗎？此對話不是公開的，如果沒有收到邀請，您無法重新加入。";
 "leave_room_alert_empty_subtitle" = "您確定要離開聊天室嗎？這裡只有您一個人。如果您離開了，包含您在內的所有人都無法再進入此聊天室。";
 "leave_room_alert_private_subtitle" = "您確定要離開聊天室嗎？此聊天室不是公開的，如果沒有收到邀請，您無法重新加入。";
+"leave_room_alert_select_new_owner_action" = "Choose owners";
+"leave_room_alert_select_new_owner_subtitle" = "You're the only owner of this room. You need to transfer ownership to someone else before you leave the room.";
+"leave_room_alert_select_new_owner_title" = "Transfer ownership";
 "leave_room_alert_subtitle" = "您確定要離開聊天室嗎？";
 "login_initial_device_name_ios" = "%1$@ iOS";
 "notification_channel_call" = "通話";
@@ -455,6 +462,7 @@
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_description" = "They would be able to join the room again if invited";
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_title" = "Are you sure you want to unban this member?";
 "screen_bottom_sheet_manage_room_member_unbanning_user" = "Unbanning %1$@";
+"screen_bug_report_a11y_screenshot" = "Screenshot";
 "screen_create_poll_option_accessibility_label" = "%1$@: %2$@";
 "screen_create_poll_options_section_title" = "Options";
 "screen_create_poll_remove_accessibility_label" = "Remove %1$@";
@@ -467,14 +475,11 @@
 "screen_create_room_room_address_section_footer" = "為了讓此聊天室在公開聊天室目錄中可見，您需要聊天室地址。";
 "screen_create_room_room_visibility_section_title" = "聊天室能見度";
 "screen_decline_and_block_block_user_option_description" = "您將不會看到來自此使用者的任何訊息或聊天室邀請";
-"screen_decline_and_block_block_user_option_title" = "封鎖使用者";
 "screen_decline_and_block_report_user_option_description" = "向您的帳號提供者回報此聊天室。";
 "screen_decline_and_block_report_user_reason_placeholder" = "說明回報的原因……";
 "screen_decline_and_block_title" = "拒絕並封鎖";
 "screen_edit_room_address_room_address_section_footer" = "您需要聊天室地址才能在目錄中顯示它。";
 "screen_edit_room_address_title" = "聊天室地址";
-"screen_home_tab_chats" = "Chats";
-"screen_home_tab_spaces" = "Spaces";
 "screen_join_room_cancel_knock_action" = "取消請求";
 "screen_join_room_cancel_knock_alert_confirmation" = "是的，取消";
 "screen_join_room_cancel_knock_alert_description" = "您確定您想要取消加入此聊天室的請求嗎？";
@@ -483,6 +488,7 @@
 "screen_join_room_decline_and_block_alert_message" = "您確定要拒絕加入此聊天室的邀請嗎？這也會防止 %1$@ 聯絡您或邀請您加入聊天室。";
 "screen_join_room_decline_and_block_alert_title" = "拒絕邀請並封鎖";
 "screen_join_room_decline_and_block_button_title" = "拒絕並封鎖";
+"screen_join_room_knock_message_characters_count" = "Allowed characters %1$d of %2$d";
 "screen_join_room_knock_message_description" = "訊息（選擇性）";
 "screen_join_room_knock_sent_description" = "若接受了您的請求，您將會收到加入聊天是的邀請。";
 "screen_join_room_knock_sent_title" = "已傳送加入請求";
@@ -519,8 +525,11 @@
 "screen_media_details_uploaded_by" = "上傳者：";
 "screen_media_details_uploaded_on" = "上傳於";
 "screen_media_upload_preview_caption_warning" = "使用舊應用程式的使用者可能看不到標題。";
+"screen_media_upload_preview_error_could_not_be_uploaded" = "The file could not be uploaded.";
 "screen_media_upload_preview_error_failed_processing" = "無法處理要上傳的媒體，請再試一次。";
 "screen_media_upload_preview_error_failed_sending" = "無法上傳媒體檔案，請稍後再試。";
+"screen_media_upload_preview_error_too_large_message" = "The maximum file size allowed is %1$@.";
+"screen_media_upload_preview_error_too_large_title" = "The file is too large to upload";
 "screen_pinned_timeline_empty_state_description" = "按一下訊息，然後選擇「%1$@」以加入至此。";
 "screen_pinned_timeline_empty_state_headline" = "釘選重要訊息，如此才能輕鬆發現";
 "screen_push_history_title" = "推播通知歷史紀錄";
@@ -582,6 +591,9 @@
 "screen_security_and_privacy_room_publishing_section_header" = "聊天室發佈";
 "screen_security_and_privacy_room_visibility_section_footer" = "聊天室地址是尋找與存取聊天室的方法。也確保您可以輕鬆與其他人分享聊天室。\n若要讓聊天室在 %1$@ 公開聊天室目錄中可見，地址也是必要的。";
 "screen_security_and_privacy_title" = "安全與隱私";
+"screen_space_list_description" = "Spaces you have created or joined.";
+"screen_space_list_details" = "%1$@ • %2$@";
+"screen_space_list_title" = "Spaces";
 "screen_start_chat_join_room_by_address_action" = "按地址加入聊天室";
 "screen_start_chat_join_room_by_address_invalid_address" = "不是有效的位址";
 "screen_start_chat_join_room_by_address_placeholder" = "輸入……";
@@ -659,6 +671,9 @@
 "screen_change_account_provider_other" = "其他";
 "screen_change_account_provider_subtitle" = "使用不同的帳戶提供者，例如您自己的伺服器或工作帳號。";
 "screen_change_account_provider_title" = "更改帳號提供者";
+"screen_change_server_error_element_pro_required_action_ios" = "App Store";
+"screen_change_server_error_element_pro_required_message" = "The Element Pro app is required on %1$@. Please download it from the store.";
+"screen_change_server_error_element_pro_required_title" = "Element Pro required";
 "screen_change_server_error_invalid_homeserver" = "我們無法連線至此家伺服器。請檢查您是否已正確輸入家伺服器 URL。若 URL 正確，請聯絡您家伺服器的管理員以取得進一步協助。";
 "screen_change_server_error_invalid_well_known" = "因為 well-known 檔案的問題，伺服器不可用：\n%1$@";
 "screen_change_server_error_no_sliding_sync_message" = "選定的帳號提供者不支援 sliding sync。必須升級伺服器才能使用 %1$@。";
@@ -921,12 +936,16 @@
 "screen_room_change_role_administrators_title" = "編輯管理員";
 "screen_room_change_role_confirm_add_admin_description" = "您將無法復原此動作。您正將使用者提昇至與您相同的權力等級。";
 "screen_room_change_role_confirm_add_admin_title" = "要新增管理員嗎？";
+"screen_room_change_role_confirm_change_owners_description" = "You will not be able to undo this action. You are transferring the ownership to the selected users. Once you leave this will be permanent.";
+"screen_room_change_role_confirm_change_owners_title" = "Transfer ownership?";
 "screen_room_change_role_confirm_demote_self_action" = "降級";
 "screen_room_change_role_confirm_demote_self_description" = "當您自行降級時，您將無法復原此變更，若您是聊天室中的最後一位特權使用者，則無法重新獲得權限。";
 "screen_room_change_role_confirm_demote_self_title" = "將自己降級？";
 "screen_room_change_role_invited_member_name" = "%1$@（擱置中）";
 "screen_room_change_role_moderators_admin_section_footer" = "管理員自動擁有版主權限";
+"screen_room_change_role_moderators_owner_section_footer" = "Owners automatically have admin privileges.";
 "screen_room_change_role_moderators_title" = "編輯版主";
+"screen_room_change_role_owners_title" = "Choose Owners";
 "screen_room_change_role_unsaved_changes_description" = "您有尚未儲存的變更";
 "screen_room_details_add_topic_title" = "新增主題";
 "screen_room_details_already_a_member" = "已是成員";
@@ -973,6 +992,7 @@
 "screen_room_member_list_pending_header_title" = "待定";
 "screen_room_member_list_role_administrator" = "管理員";
 "screen_room_member_list_role_moderator" = "版主";
+"screen_room_member_list_role_owner" = "Owner";
 "screen_room_member_list_room_members_header_title" = "聊天室成員";
 "screen_room_member_list_unbanning_user" = "正在解除黑名單 %1$@";
 "screen_room_notification_settings_allow_custom" = "允許自訂設定";
@@ -990,12 +1010,14 @@
 "screen_room_retry_send_menu_send_again_action" = "重傳";
 "screen_room_retry_send_menu_title" = "無法傳送您的訊息";
 "screen_room_roles_and_permissions_admins" = "管理員";
+"screen_room_roles_and_permissions_admins_and_owners" = "Admins and owners";
 "screen_room_roles_and_permissions_change_my_role" = "變更我的身份";
 "screen_room_roles_and_permissions_change_role_demote_to_member" = "降級為普通成員";
 "screen_room_roles_and_permissions_change_role_demote_to_moderator" = "降級為版主";
 "screen_room_roles_and_permissions_member_moderation" = "成員管理";
 "screen_room_roles_and_permissions_messages_and_content" = "訊息與內容";
 "screen_room_roles_and_permissions_moderators" = "版主";
+"screen_room_roles_and_permissions_owners" = "Owners";
 "screen_room_roles_and_permissions_permissions_header" = "權限";
 "screen_room_roles_and_permissions_reset" = "重設權限";
 "screen_room_roles_and_permissions_reset_confirm_description" = "重設之後，您會遺失當前的設定。";
@@ -1243,6 +1265,9 @@
 "notification_room_action_mark_as_read" = "標為已讀";
 "notification_room_action_quick_reply" = "快速回覆";
 "screen_create_room_room_address_section_title" = "聊天室地址";
+"screen_decline_and_block_block_user_option_title" = "封鎖使用者";
+"screen_home_tab_chats" = "所有聊天室";
+"screen_home_tab_spaces" = "Spaces";
 "screen_knock_requests_list_title" = "請求加入";
 "screen_pinned_timeline_screen_title_empty" = "釘選訊息";
 "screen_room_mentions_at_room_title" = "所有人";

@@ -14,7 +14,7 @@ enum TimelineInteractionHandlerAction {
     case displayEmojiPicker(itemID: TimelineItemIdentifier, selectedEmojis: Set<String>)
     case displayReportContent(itemID: TimelineItemIdentifier, senderID: String)
     case displayMessageForwarding(itemID: TimelineItemIdentifier)
-    case displayMediaUploadPreviewScreen(url: URL)
+    case displayMediaUploadPreviewScreen(mediaURLs: [URL])
     case displayPollForm(mode: PollFormMode)
     
     case showActionMenu(TimelineItemActionMenuInfo)
@@ -85,7 +85,9 @@ class TimelineInteractionHandler {
         self.emojiProvider = emojiProvider
         self.timelineControllerFactory = timelineControllerFactory
         self.clientProxy = clientProxy
-        pollInteractionHandler = PollInteractionHandler(analyticsService: analyticsService, roomProxy: roomProxy)
+        
+        pollInteractionHandler = PollInteractionHandler(analyticsService: analyticsService,
+                                                        timelineController: timelineController)
     }
     
     // MARK: Timeline Item Action Menu
@@ -275,7 +277,7 @@ class TimelineInteractionHandler {
     
     // MARK: Pasting and dropping
     
-    func handlePasteOrDrop(_ provider: NSItemProvider) {
+    func handlePasteOrDrop(_ providers: [NSItemProvider]) {
         Task {
             let loadingIndicatorIdentifier = UUID().uuidString
             self.userIndicatorController.submitIndicator(UserIndicator(id: loadingIndicatorIdentifier, type: .modal, title: L10n.commonLoading, persistent: true))
@@ -283,13 +285,19 @@ class TimelineInteractionHandler {
                 self.userIndicatorController.retractIndicatorWithId(loadingIndicatorIdentifier)
             }
             
-            guard let fileURL = await provider.storeData() else {
-                MXLog.error("Failed storing NSItemProvider data \(provider)")
-                self.actionsSubject.send(.displayErrorToast(L10n.screenRoomErrorFailedProcessingMedia))
-                return
+            var mediaURLs = [URL]()
+            for provider in providers {
+                if let fileURL = await provider.storeData() {
+                    mediaURLs.append(fileURL)
+                } else {
+                    MXLog.error("Failed storing NSItemProvider data \(provider)")
+                    self.actionsSubject.send(.displayErrorToast(L10n.screenRoomErrorFailedProcessingMedia))
+                }
             }
             
-            self.actionsSubject.send(.displayMediaUploadPreviewScreen(url: fileURL))
+            if !mediaURLs.isEmpty {
+                self.actionsSubject.send(.displayMediaUploadPreviewScreen(mediaURLs: mediaURLs))
+            }
         }
     }
     
@@ -362,9 +370,8 @@ class TimelineInteractionHandler {
 
         actionsSubject.send(.composer(action: .setMode(mode: .previewVoiceMessage(state: audioPlayerState, waveform: .url(recordingURL), isUploading: true))))
         await voiceMessageRecorder.stopPlayback()
-        switch await voiceMessageRecorder.sendVoiceMessage(inRoom: roomProxy,
-                                                           audioConverter: AudioConverter(),
-                                                           threadRootEventID: timelineController.timelineKind.threadRootEventID) {
+        
+        switch await voiceMessageRecorder.sendVoiceMessage(timelineController: timelineController, audioConverter: AudioConverter()) {
         case .success:
             await deleteCurrentVoiceMessage()
         case .failure(let error):

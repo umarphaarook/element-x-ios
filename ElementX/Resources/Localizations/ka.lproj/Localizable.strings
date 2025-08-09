@@ -3,6 +3,7 @@
 "a11y_avatar" = "Avatar";
 "a11y_delete" = "წაშლა";
 "a11y_edit_avatar" = "Edit avatar";
+"a11y_edit_room_address_hint" = "The full address will be %1$@";
 "a11y_hide_password" = "პაროლის დამალვა";
 "a11y_join_call" = "Join call";
 "a11y_jump_to_bottom" = "ბოლოში გადასვლა";
@@ -30,6 +31,7 @@
 "a11y_show_password" = "პაროლის ჩვენება";
 "a11y_start_call" = "დარეკვა";
 "a11y_time_limited_action_required" = "Time limited action required";
+"a11y_tombstoned_room" = "Tombstoned room";
 "a11y_user_menu" = "მომხმარებლის მენიუ";
 "a11y_view_avatar" = "View avatar";
 "a11y_view_details" = "დეტალების ნახვა";
@@ -37,6 +39,7 @@
 "a11y_voice_message_record" = "ხმოვანი შეტყობინების ჩაწერა.";
 "a11y_voice_message_stop_recording" = "ჩაწერის შეწყვეტა";
 "a11y.encryption_details" = "Encryption details";
+"a11y.move_the_map_to_my_location" = "Move the map to my location";
 "a11y.other_user_avatar" = "Other user's avatar";
 "a11y.room_avatar" = "Room avatar";
 "a11y.user_avatar" = "User avatar";
@@ -237,6 +240,7 @@
 "common_poll_summary" = "გამოკითხვა: %1$@";
 "common_poll_total_votes" = "სულ ხმები: %1$@";
 "common_poll_undisclosed_text" = "შედეგები გამოკითხვის დასრულების შემდეგ გამოჩნდება";
+"common_preparing" = "Preparing…";
 "common_privacy_policy" = "კონფიდენციალურობის პოლიტიკა";
 "common_reaction" = "რეაქცია";
 "common_reactions" = "რეაქციები";
@@ -369,6 +373,9 @@
 "leave_conversation_alert_subtitle" = "დარწმუნებული ხართ ამ საუბრის დატოვებაში? იგი საჯარო არაა და მოწვევის გარეშე ხელახლა ვერ შეურთდებით.";
 "leave_room_alert_empty_subtitle" = "დარწმუნებული ბრძანდებით, რომ ამ ოთახის დატოვება გსურთ? თქვენ აქ მარტო ხართ და ჩატის დატოვებისას აქ თქვენს ჩათვლით ვერავინ ვერ გაწევრიანდება.";
 "leave_room_alert_private_subtitle" = "დარწმუნებული ბრძანდებით, რომ ამ ოთახის დატოვება გსურთ? ეს ოთახი არ არის საჯარო და მოწვევის გარეშე ვერ შეძლებთ ხელახლა გაწევრიანებას.";
+"leave_room_alert_select_new_owner_action" = "Choose owners";
+"leave_room_alert_select_new_owner_subtitle" = "You're the only owner of this room. You need to transfer ownership to someone else before you leave the room.";
+"leave_room_alert_select_new_owner_title" = "Transfer ownership";
 "leave_room_alert_subtitle" = "დარწმუნებული ბრძანდებით, რომ ოთახის დატოვება გსურთ?";
 "login_initial_device_name_ios" = "%1$@ iOS";
 "notification_channel_call" = "ზარი";
@@ -455,6 +462,7 @@
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_description" = "They would be able to join the room again if invited";
 "screen_bottom_sheet_manage_room_member_unban_member_confirmation_title" = "Are you sure you want to unban this member?";
 "screen_bottom_sheet_manage_room_member_unbanning_user" = "Unbanning %1$@";
+"screen_bug_report_a11y_screenshot" = "Screenshot";
 "screen_create_poll_option_accessibility_label" = "%1$@: %2$@";
 "screen_create_poll_options_section_title" = "Options";
 "screen_create_poll_remove_accessibility_label" = "Remove %1$@";
@@ -467,14 +475,11 @@
 "screen_create_room_room_address_section_footer" = "In order for this room to be visible in the public room directory, you will need a room address.";
 "screen_create_room_room_visibility_section_title" = "Room visibility";
 "screen_decline_and_block_block_user_option_description" = "You will not see any messages or room invites from this user";
-"screen_decline_and_block_block_user_option_title" = "Block user";
 "screen_decline_and_block_report_user_option_description" = "Report this room to your account provider.";
 "screen_decline_and_block_report_user_reason_placeholder" = "Describe the reason to report…";
 "screen_decline_and_block_title" = "Decline and block";
 "screen_edit_room_address_room_address_section_footer" = "You’ll need a room address in order to make it visible in the directory.";
 "screen_edit_room_address_title" = "Room address";
-"screen_home_tab_chats" = "Chats";
-"screen_home_tab_spaces" = "Spaces";
 "screen_join_room_cancel_knock_action" = "Cancel request";
 "screen_join_room_cancel_knock_alert_confirmation" = "Yes, cancel";
 "screen_join_room_cancel_knock_alert_description" = "Are you sure that you want to cancel your request to join this room?";
@@ -483,6 +488,7 @@
 "screen_join_room_decline_and_block_alert_message" = "Are you sure you want to decline the invite to join this room? This will also prevent %1$@ from contacting you or inviting you to rooms.";
 "screen_join_room_decline_and_block_alert_title" = "Decline invite & block";
 "screen_join_room_decline_and_block_button_title" = "Decline and block";
+"screen_join_room_knock_message_characters_count" = "Allowed characters %1$d of %2$d";
 "screen_join_room_knock_message_description" = "Message (optional)";
 "screen_join_room_knock_sent_description" = "You will receive an invite to join the room if your request is accepted.";
 "screen_join_room_knock_sent_title" = "Request to join sent";
@@ -519,8 +525,11 @@
 "screen_media_details_uploaded_by" = "Uploaded by";
 "screen_media_details_uploaded_on" = "Uploaded on";
 "screen_media_upload_preview_caption_warning" = "Captions might not be visible to people using older apps.";
+"screen_media_upload_preview_error_could_not_be_uploaded" = "The file could not be uploaded.";
 "screen_media_upload_preview_error_failed_processing" = "მედიის ატვირთვა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.";
 "screen_media_upload_preview_error_failed_sending" = "მედიის ატვირთვა ვერ მოხერხდა, გთხოვთ, სცადოთ ხელახლა.";
+"screen_media_upload_preview_error_too_large_message" = "The maximum file size allowed is %1$@.";
+"screen_media_upload_preview_error_too_large_title" = "The file is too large to upload";
 "screen_pinned_timeline_empty_state_description" = "Press on a message and choose “%1$@” to include here.";
 "screen_pinned_timeline_empty_state_headline" = "Pin important messages so that they can be easily discovered";
 "screen_push_history_title" = "Push history";
@@ -582,6 +591,9 @@
 "screen_security_and_privacy_room_publishing_section_header" = "Room publishing";
 "screen_security_and_privacy_room_visibility_section_footer" = "Room addresses are ways to find and access rooms. This also ensures you can easily share your room with others.\nThe address is also required to make the room visible in %1$@ public room directory.";
 "screen_security_and_privacy_title" = "Security & privacy";
+"screen_space_list_description" = "Spaces you have created or joined.";
+"screen_space_list_details" = "%1$@ • %2$@";
+"screen_space_list_title" = "Spaces";
 "screen_start_chat_join_room_by_address_action" = "Join room by address";
 "screen_start_chat_join_room_by_address_invalid_address" = "Not a valid address";
 "screen_start_chat_join_room_by_address_placeholder" = "Enter...";
@@ -659,6 +671,9 @@
 "screen_change_account_provider_other" = "სხვა";
 "screen_change_account_provider_subtitle" = "გამოიყენეთ სხვა ანგარიშის პროვაიდერი, როგორიცაა თქვენი პირადი სერვერი ან სამუშაო ანგარიში.";
 "screen_change_account_provider_title" = "შეცვალეთ ანგარიშის მომწოდებელი";
+"screen_change_server_error_element_pro_required_action_ios" = "App Store";
+"screen_change_server_error_element_pro_required_message" = "The Element Pro app is required on %1$@. Please download it from the store.";
+"screen_change_server_error_element_pro_required_title" = "Element Pro required";
 "screen_change_server_error_invalid_homeserver" = "ჩვენ ვერ მივაღწიეთ ამ სახლის სერვერს. გთხოვთ, შეამოწმოთ, რომ სწორად შეიყვანეთ სახლის სერვერის URL. თუ URL სწორია, დაუკავშირდით თქვენი სახლის სერვერის ადმინისტრატორს დამატებითი დახმარებისთვის.";
 "screen_change_server_error_invalid_well_known" = "Sliding sync არ არის ხელმისაწვდომი well-known ფაილში პრობლემის გამო: %1$@";
 "screen_change_server_error_no_sliding_sync_message" = "The selected account provider does not support sliding sync. An upgrade to the server is needed to use %1$@.";
@@ -921,12 +936,16 @@
 "screen_room_change_role_administrators_title" = "ადმინისტრატორების რედაქტირება";
 "screen_room_change_role_confirm_add_admin_description" = "ამ მოქმედების გაუქმებას ვერ შეძლებთ. თქვენ ნიშნავთ ამ მომხმარებელს იმავე ძალაუფლების დონეზე, რომელიც გაქვთ თქვენ.";
 "screen_room_change_role_confirm_add_admin_title" = "ადმინისტრატორის დამატება?";
+"screen_room_change_role_confirm_change_owners_description" = "You will not be able to undo this action. You are transferring the ownership to the selected users. Once you leave this will be permanent.";
+"screen_room_change_role_confirm_change_owners_title" = "Transfer ownership?";
 "screen_room_change_role_confirm_demote_self_action" = "დაქვეითება";
 "screen_room_change_role_confirm_demote_self_description" = "იმის გამო, რომ აქვეითებთ თქვენ თავს, ამ მოქმედებას ვერ გააუქმებთ. პრივილეგიების აღდგენა შეუძლებელია თუ თქვენ ბოლო პრივილეგირებული მომხმარებელი ხართ ამ ოთახში.";
 "screen_room_change_role_confirm_demote_self_title" = "გსურთ საკუთარი თავის დაქვეითება?";
 "screen_room_change_role_invited_member_name" = "%1$@ (მოლოდინი)";
 "screen_room_change_role_moderators_admin_section_footer" = "Admins automatically have moderator privileges";
+"screen_room_change_role_moderators_owner_section_footer" = "Owners automatically have admin privileges.";
 "screen_room_change_role_moderators_title" = "მოდერატორების რედაქტირება";
+"screen_room_change_role_owners_title" = "Choose Owners";
 "screen_room_change_role_unsaved_changes_description" = "თქვენ გაქვთ შეუნახავი ცვლილებები";
 "screen_room_details_add_topic_title" = "თემის დამატება";
 "screen_room_details_already_a_member" = "უკვე წევრია";
@@ -973,6 +992,7 @@
 "screen_room_member_list_pending_header_title" = "მომლოდინე";
 "screen_room_member_list_role_administrator" = "ადმინისტრატორი";
 "screen_room_member_list_role_moderator" = "მოდერატორი";
+"screen_room_member_list_role_owner" = "Owner";
 "screen_room_member_list_room_members_header_title" = "ოთახის წევრები";
 "screen_room_member_list_unbanning_user" = "%1$@-ს განბლოკვა";
 "screen_room_notification_settings_allow_custom" = "მორგებული პარამეტრის დაშვება";
@@ -990,12 +1010,14 @@
 "screen_room_retry_send_menu_send_again_action" = "Ხელახლა გაგზავნა";
 "screen_room_retry_send_menu_title" = "თქვენი შეტყობინების გაგზავნა ვერ მოხერხდა";
 "screen_room_roles_and_permissions_admins" = "ადმინისტრატორები";
+"screen_room_roles_and_permissions_admins_and_owners" = "Admins and owners";
 "screen_room_roles_and_permissions_change_my_role" = "ჩემი როლის შეცვლა";
 "screen_room_roles_and_permissions_change_role_demote_to_member" = "დაქვეითება წევრამდე";
 "screen_room_roles_and_permissions_change_role_demote_to_moderator" = "დაქვეითება მოდერატორამდე";
 "screen_room_roles_and_permissions_member_moderation" = "წევრების მოდერირება";
 "screen_room_roles_and_permissions_messages_and_content" = "შეტყობინებები და შინაარსი";
 "screen_room_roles_and_permissions_moderators" = "მოდერატორები";
+"screen_room_roles_and_permissions_owners" = "Owners";
 "screen_room_roles_and_permissions_permissions_header" = "ნებართვები";
 "screen_room_roles_and_permissions_reset" = "ნებართვების გადაყენება";
 "screen_room_roles_and_permissions_reset_confirm_description" = "ნებართვების გადაყენების შემთხვევაში მიმდინარე პარამეტრებს დაკარგავთ.";
@@ -1243,6 +1265,9 @@
 "notification_room_action_mark_as_read" = "წაკითხულად მონიშვნა";
 "notification_room_action_quick_reply" = "Სწრაფი პასუხი";
 "screen_create_room_room_address_section_title" = "Room address";
+"screen_decline_and_block_block_user_option_title" = "მომხმარებლის დაბლოკვა";
+"screen_home_tab_chats" = "ჩატები";
+"screen_home_tab_spaces" = "Spaces";
 "screen_knock_requests_list_title" = "Requests to join";
 "screen_pinned_timeline_screen_title_empty" = "Pinned messages";
 "screen_room_mentions_at_room_title" = "ყველა";

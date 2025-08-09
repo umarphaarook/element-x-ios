@@ -150,7 +150,6 @@ class ClientProxy: ClientProxyProtocol {
     private let sendQueueStatusSubject = CurrentValueSubject<Bool, Never>(false)
     
     init(client: ClientProtocol,
-         needsSlidingSyncMigration: Bool,
          networkMonitor: NetworkMonitorProtocol,
          appSettings: AppSettings) async throws {
         self.client = client
@@ -164,8 +163,6 @@ class ClientProxy: ClientProxyProtocol {
         notificationSettings = await NotificationSettingsProxy(notificationSettings: client.getNotificationSettings())
         
         secureBackupController = SecureBackupController(encryption: client.encryption())
-        
-        self.needsSlidingSyncMigration = needsSlidingSyncMigration
         
         let configuredAppService = try await ClientProxyServices(client: client,
                                                                  actionsSubject: actionsSubject,
@@ -271,11 +268,6 @@ class ClientProxy: ClientProxyProtocol {
         client.homeserver()
     }
     
-    let needsSlidingSyncMigration: Bool
-    var slidingSyncVersion: SlidingSyncVersion {
-        client.slidingSyncVersion()
-    }
-    
     var canDeactivateAccount: Bool {
         client.canDeactivateAccount()
     }
@@ -310,6 +302,17 @@ class ClientProxy: ClientProxyProtocol {
             }
         }
     }
+    
+    var maxMediaUploadSize: Result<UInt, ClientProxyError> {
+        get async {
+            do {
+                return try await .success(UInt(client.getMaxMediaUploadSize()))
+            } catch {
+                MXLog.error("Failed checking the max media upload size with error: \(error)")
+                return .failure(.sdkError(error))
+            }
+        }
+    }
 
     private(set) lazy var pusherNotificationClientIdentifier: String? = {
         // NOTE: The result is stored as part of the restoration token. Any changes
@@ -330,11 +333,6 @@ class ClientProxy: ClientProxyProtocol {
     }
 
     func startSync() {
-        guard !needsSlidingSyncMigration else {
-            MXLog.warning("Ignoring request, this client needs to be migrated to native sliding sync.")
-            return
-        }
-        
         guard !hasEncounteredAuthError else {
             MXLog.warning("Ignoring request, this client has an unknown token.")
             return
@@ -572,7 +570,7 @@ class ClientProxy: ClientProxyProtocol {
     func roomPreviewForIdentifier(_ identifier: String, via: [String]) async -> Result<RoomPreviewProxyProtocol, ClientProxyError> {
         do {
             let roomPreview = try await client.getRoomPreviewFromRoomId(roomId: identifier, viaServers: via)
-            return try .success(RoomPreviewProxy(roomPreview: roomPreview))
+            return .success(RoomPreviewProxy(roomPreview: roomPreview))
         } catch ClientError.MatrixApi(.forbidden, _, _, _) {
             MXLog.error("Failed retrieving preview for room: \(identifier) is private")
             return .failure(.roomPreviewIsPrivate)
@@ -590,7 +588,7 @@ class ClientProxy: ClientProxyProtocol {
         staticRoomSummaryProvider.roomListPublisher.value.first { $0.canonicalAlias == alias || $0.alternativeAliases.contains(alias) }
     }
     
-    func reportRoomForIdentifier(_ identifier: String, reason: String?) async -> Result<Void, ClientProxyError> {
+    func reportRoomForIdentifier(_ identifier: String, reason: String) async -> Result<Void, ClientProxyError> {
         do {
             guard let room = try client.getRoom(roomId: identifier) else {
                 MXLog.error("Failed reporting room with identifier: \(identifier), room not in local store")
@@ -1021,11 +1019,23 @@ class ClientProxy: ClientProxyProtocol {
     }
     
     private func waitForRoomToSync(roomID: String, timeout: Duration = .seconds(10)) async {
+        MXLog.info("Wait for \(roomID)")
         let runner = ExpiringTaskRunner { [weak self] in
-            try await self?.client.awaitRoomRemoteEcho(roomId: roomID)
+            guard let self else { return }
+            
+            do {
+                _ = try await client.awaitRoomRemoteEcho(roomId: roomID)
+                MXLog.info("Wait for \(roomID) got remote echo.")
+            } catch {
+                MXLog.info("Failed waiting for remote echo in \(roomID): \(error)")
+            }
         }
         
-        _ = try? await runner.run(timeout: timeout)
+        do {
+            try await runner.run(timeout: timeout)
+        } catch {
+            MXLog.info("Wait for \(roomID) failed: \(error)")
+        }
     }
 
     private func updateIgnoredUsers() {
@@ -1231,6 +1241,8 @@ private extension MediaPreviewConfig {
             .privateOnly
         case .off:
             .never
+        case .none:
+            .always
         }
     }
     
@@ -1240,6 +1252,8 @@ private extension MediaPreviewConfig {
             true
         case .on:
             false
+        case .none:
+            true
         }
     }
 }
