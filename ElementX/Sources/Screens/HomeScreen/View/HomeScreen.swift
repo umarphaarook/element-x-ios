@@ -7,6 +7,7 @@
 
 import Combine
 import Compound
+import ReactBrownfield
 import SentrySwiftUI
 import SwiftUI
 
@@ -16,17 +17,29 @@ struct HomeScreen: View {
     @State private var scrollViewAdapter = ScrollViewAdapter()
     
     var body: some View {
-        HomeScreenContent(context: context, scrollViewAdapter: scrollViewAdapter)
-            .alert(item: $context.alertInfo)
-            .alert(item: $context.leaveRoomAlertItem,
-                   actions: leaveRoomAlertActions,
-                   message: leaveRoomAlertMessage)
-            .navigationTitle(L10n.screenRoomlistMainSpaceTitle)
-            .toolbar { toolbar }
-            .background(Color.compound.bgCanvasDefault.ignoresSafeArea())
-            .track(screen: .Home)
-            .bloom()
-            .sentryTrace("\(Self.self)")
+        ZStack {
+            HomeScreenContent(context: context, scrollViewAdapter: scrollViewAdapter)
+                .alert(item: $context.alertInfo)
+                .alert(item: $context.leaveRoomAlertItem,
+                       actions: leaveRoomAlertActions,
+                       message: leaveRoomAlertMessage)
+                .navigationTitle(L10n.screenRoomlistMainSpaceTitle)
+                .toolbar { toolbar }
+                .background(Color.compound.bgCanvasDefault.ignoresSafeArea())
+                .track(screen: .Home)
+                .bloom()
+                .sentryTrace("\(Self.self)")
+            
+            VStack(spacing: 0) {
+                Spacer()
+                HStack(spacing: 0) {
+                    Spacer()
+                    floatingActionButton
+                        .padding(.trailing, 16)
+                        .padding(.bottom, 16)
+                }
+            }
+        }
     }
     
     // MARK: - Private
@@ -81,6 +94,20 @@ struct HomeScreen: View {
     
     private func leaveRoomAlertMessage(_ item: LeaveRoomAlertItem) -> some View {
         Text(item.subtitle)
+    }
+    
+    @ViewBuilder
+    private var floatingActionButton: some View {
+        switch context.viewState.roomListMode {
+        case .empty, .rooms:
+            RealmsFAB {
+                ReactNativeView(moduleName: "Realms")
+            }
+            .accessibilityLabel("Realms Floating Action Button")
+            .accessibilityHint("Realms Floating Action Button")
+        default:
+            EmptyView()
+        }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import RealmsReact
 import SwiftUI
 
 enum AppDelegateCallback {
@@ -26,6 +27,13 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         NSTextAttachment.registerViewProviderClass(PillAttachmentViewProvider.self, forFileType: InfoPlistReader.main.pillsUTType)
+        
+        // Initialize React Native
+        ReactNativeBrownfield.shared.bundle = ReactNativeBundle
+        ReactNativeBrownfield.shared.startReactNative(onBundleLoaded: {
+            MXLog.info("React Native bundle loaded")
+        }, launchOptions: launchOptions)
+        
         return true
     }
 
