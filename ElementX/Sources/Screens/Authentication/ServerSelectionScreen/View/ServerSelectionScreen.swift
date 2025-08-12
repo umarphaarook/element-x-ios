@@ -5,10 +5,12 @@
 // Please see LICENSE files in the repository root for full details.
 //
 
+import ReactBrownfield
 import SwiftUI
 
 struct ServerSelectionScreen: View {
     @Bindable var context: ServerSelectionScreenViewModel.Context
+    @State private var showingHostedServerSheet = false
     
     var body: some View {
         ScrollView {
@@ -18,6 +20,9 @@ struct ServerSelectionScreen: View {
                     .padding(.bottom, 36)
                 
                 serverForm
+                
+                hostedServerPromo
+                    .padding(.top, 24)
             }
             .readableFrame()
             .padding(.horizontal, 16)
@@ -26,6 +31,9 @@ struct ServerSelectionScreen: View {
         .toolbar { toolbar }
         .alert(item: $context.alertInfo)
         .interactiveDismissDisabled()
+        .sheet(isPresented: $showingHostedServerSheet) {
+            ReactNativeView(moduleName: "Realms")
+        }
     }
     
     /// The title, message and icon at the top of the screen.
@@ -53,7 +61,6 @@ struct ServerSelectionScreen: View {
         VStack(alignment: .leading, spacing: 24) {
             TextField(L10n.commonServerUrl, text: $context.homeserverAddress)
                 .textFieldStyle(.element(labelText: Text(L10n.screenChangeServerFormHeader),
-                                         footerText: Text(context.viewState.footerMessage),
                                          state: context.viewState.isShowingFooterError ? .error : .default,
                                          accessibilityIdentifier: A11yIdentifiers.changeServerScreen.server))
                 .keyboardType(.URL)
@@ -72,6 +79,69 @@ struct ServerSelectionScreen: View {
         }
     }
     
+    /// Promotional section for hosted server services
+    var hostedServerPromo: some View {
+        VStack(spacing: 24) {
+            // Divider with "or" text
+            HStack(spacing: 0) {
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.compound.borderInteractiveSecondary)
+                
+                Text("or")
+                    .font(.compound.bodySM)
+                    .foregroundColor(.compound.textSecondary)
+                    .padding(.horizontal, 16)
+                
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.compound.borderInteractiveSecondary)
+            }
+            
+            // Promotional content
+            VStack(alignment: .leading, spacing: 16) {
+                // Header with icon and title
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Get a Professional Hosted Server")
+                        .font(.compound.headingSMSemibold)
+                        .foregroundColor(.compound.textPrimary)
+                    
+                    Text("Skip the setup, enjoy enterprise-grade reliability")
+                        .font(.compound.bodySM)
+                        .foregroundColor(.compound.textSecondary)
+                    
+                    Spacer()
+                }
+                
+                // Key benefits
+                VStack(alignment: .leading, spacing: 8) {
+                    PromoBenefitRow(icon: "clock.arrow.circlepath", text: "99.9% uptime guarantee with 24/7 monitoring")
+                    PromoBenefitRow(icon: "archivebox", text: "Daily data backups")
+                    PromoBenefitRow(icon: "globe", text: "Global server locations")
+                    PromoBenefitRow(icon: "star.fill", text: "Trusted by 500+ businesses worldwide")
+                    
+                    Spacer()
+                }
+                
+                // CTA button
+                Button(action: { showingHostedServerSheet = true }, label: {
+                    Text("Explore Hosting Plans")
+                        .frame(maxWidth: .infinity)
+                })
+                .buttonStyle(.compound(.primary))
+            }
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Color.compound.bgCanvasDefault)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .stroke(Color.compound.borderInteractiveSecondary, lineWidth: 1)
+                    )
+            )
+        }
+    }
+    
     var toolbar: some ToolbarContent {
         ToolbarItem(placement: .cancellationAction) {
             Button { context.send(viewAction: .dismiss) } label: {
@@ -85,6 +155,27 @@ struct ServerSelectionScreen: View {
     func submit() {
         guard !context.viewState.hasValidationError else { return }
         context.send(viewAction: .confirm)
+    }
+}
+
+/// Individual benefit row for the promotional section
+struct PromoBenefitRow: View {
+    let icon: String
+    let text: String
+    
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .foregroundColor(.compound.iconAccentTertiary)
+                .font(.body)
+                .frame(width: 20)
+            
+            Text(text)
+                .font(.compound.bodySM)
+                .foregroundColor(.compound.textSecondary)
+            
+            Spacer()
+        }
     }
 }
 

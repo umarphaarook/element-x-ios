@@ -6,7 +6,7 @@
 //
 
 import Combine
-import RealmsReact
+import RealmsBrownfieldReact
 import SwiftUI
 
 enum AppDelegateCallback {

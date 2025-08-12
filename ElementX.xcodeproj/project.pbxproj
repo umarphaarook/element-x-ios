@@ -1260,13 +1260,13 @@
 		EFBBD44C0A16F017C32D2099 /* TimelineItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72614BFF35B8394C6E13F55A /* TimelineItemStatusView.swift */; };
 		F0570F1ECD70C4C851FB2052 /* SecureBackupRecoveryKeyScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E7304F5ECB4CB11CB10E60 /* SecureBackupRecoveryKeyScreenViewModelProtocol.swift */; };
 		F06CE9132855E81EBB6DDC32 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 940C605265DD82DA0C655E23 /* Kingfisher */; };
+		F06DD9FB2E4B979100492C45 /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06DD9F82E4B979100492C45 /* hermes.xcframework */; };
+		F06DD9FC2E4B979100492C45 /* ReactBrownfield.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06DD9F92E4B979100492C45 /* ReactBrownfield.xcframework */; };
+		F06DD9FD2E4B979100492C45 /* RealmsBrownfieldReact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F06DD9FA2E4B979100492C45 /* RealmsBrownfieldReact.xcframework */; };
 		F07D88421A9BC4D03D4A5055 /* VideoRoomTimelineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F348B5F2C12F9D4F4B4D3884 /* VideoRoomTimelineItem.swift */; };
 		F08F7BC07CA9AEF5CD157918 /* Snapshotting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF17EA323AD0205A6AB621AA /* Snapshotting.swift */; };
 		F0A027BB2369606DBDE3BDAD /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 32B8F4CD937AA9C1F8FC3CBC /* KeychainAccess */; };
 		F0A26CD502C3A5868353B0FA /* ServerConfirmationScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DEE0682C95F897B6C7CB0D /* ServerConfirmationScreenViewModel.swift */; };
-		F0B0809B2E4B19F60022F5DA /* ReactBrownfield.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B080992E4B19F60022F5DA /* ReactBrownfield.xcframework */; };
-		F0B0809C2E4B19F60022F5DA /* RealmsReact.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B0809A2E4B19F60022F5DA /* RealmsReact.xcframework */; };
-		F0B0809D2E4B19F60022F5DA /* hermes.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B080982E4B19F60022F5DA /* hermes.xcframework */; };
 		F0DACC95F24128A54CD537E4 /* GlobalSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B8177BD2AF45A286F5DA31 /* GlobalSearchScreen.swift */; };
 		F0F82C3C848C865C3098AA52 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 21C83087604B154AA30E9A8F /* SnapshotTesting */; };
 		F103924DED414ADFE398CE99 /* RoomPollsHistoryScreenViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A130A2251A15A7AACC84FD37 /* RoomPollsHistoryScreenViewModelProtocol.swift */; };
@@ -2655,10 +2655,10 @@
 		F0096BC5DA86AF6B6E5742AC /* RoomPermissionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPermissionsTests.swift; sourceTree = "<group>"; };
 		F012CB5EE3F2B67359F6CC52 /* target.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = target.yml; sourceTree = "<group>"; };
 		F0205C03F98BE861EDABCB0D /* be */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = be; path = be.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F06DD9F82E4B979100492C45 /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = hermes.xcframework; sourceTree = "<group>"; };
+		F06DD9F92E4B979100492C45 /* ReactBrownfield.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ReactBrownfield.xcframework; sourceTree = "<group>"; };
+		F06DD9FA2E4B979100492C45 /* RealmsBrownfieldReact.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RealmsBrownfieldReact.xcframework; sourceTree = "<group>"; };
 		F08776C48FFB47CACF64ED10 /* ServerConfirmationScreenViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfirmationScreenViewModelTests.swift; sourceTree = "<group>"; };
-		F0B080982E4B19F60022F5DA /* hermes.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = hermes.xcframework; sourceTree = "<group>"; };
-		F0B080992E4B19F60022F5DA /* ReactBrownfield.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = ReactBrownfield.xcframework; sourceTree = "<group>"; };
-		F0B0809A2E4B19F60022F5DA /* RealmsReact.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RealmsReact.xcframework; sourceTree = "<group>"; };
 		F0E14FF533D25A0692F7CEB0 /* RoomPollsHistoryScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomPollsHistoryScreenViewModel.swift; sourceTree = "<group>"; };
 		F1033290D99D5BBA1AF3560A /* MapTilerURLBuilderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTilerURLBuilderProtocol.swift; sourceTree = "<group>"; };
 		F104596B0620CEFE5DFD31B1 /* RoomSelectionScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionScreenCoordinator.swift; sourceTree = "<group>"; };
@@ -2822,9 +2822,6 @@
 				F656F92A63D3DC1978D79427 /* Algorithms in Frameworks */,
 				9D2E03DB175A6AB14589076D /* AnalyticsEvents in Frameworks */,
 				6F2AB43A1EFAD8A97AF41A15 /* Collections in Frameworks */,
-				F0B0809B2E4B19F60022F5DA /* ReactBrownfield.xcframework in Frameworks */,
-				F0B0809C2E4B19F60022F5DA /* RealmsReact.xcframework in Frameworks */,
-				F0B0809D2E4B19F60022F5DA /* hermes.xcframework in Frameworks */,
 				93BA4A81B6D893271101F9F0 /* DeviceKit in Frameworks */,
 				9AC5F8142413862A9E3A2D98 /* DTCoreText in Frameworks */,
 				CB137BFB3E083C33E398A6CB /* EmbeddedElementCall in Frameworks */,
@@ -2833,6 +2830,9 @@
 				6298AB0906DDD3525CD78C6B /* KZFileWatchers in Frameworks */,
 				407DCE030E0F9B7C9861D38A /* LoremSwiftum in Frameworks */,
 				8F2FAA98457750D9D664136F /* LRUCache in Frameworks */,
+				F06DD9FB2E4B979100492C45 /* hermes.xcframework in Frameworks */,
+				F06DD9FC2E4B979100492C45 /* ReactBrownfield.xcframework in Frameworks */,
+				F06DD9FD2E4B979100492C45 /* RealmsBrownfieldReact.xcframework in Frameworks */,
 				FC10228E73323BDC09526F97 /* Mapbox in Frameworks */,
 				EAC6FE2CD4F50A43068ADCD8 /* Mutex in Frameworks */,
 				754602A7B2AAD443C4228ED4 /* PostHog in Frameworks */,
@@ -3745,9 +3745,9 @@
 				2197234282B4BC0CE79AAC74 /* Secrets */,
 				823ED0EC3F1B6CF47D284011 /* Tools */,
 				681566846AF307E9BA4C72C6 /* Products */,
-				F0B080982E4B19F60022F5DA /* hermes.xcframework */,
-				F0B080992E4B19F60022F5DA /* ReactBrownfield.xcframework */,
-				F0B0809A2E4B19F60022F5DA /* RealmsReact.xcframework */,
+				F06DD9F82E4B979100492C45 /* hermes.xcframework */,
+				F06DD9F92E4B979100492C45 /* ReactBrownfield.xcframework */,
+				F06DD9FA2E4B979100492C45 /* RealmsBrownfieldReact.xcframework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -8636,10 +8636,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_DISPLAY_NAME = Realms;
-				APP_GROUP_IDENTIFIER = group.realms;
+				APP_GROUP_IDENTIFIER = group.io.element;
 				APP_NAME = ElementX;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "colors/accent-color";
-				BASE_BUNDLE_IDENTIFIER = im.realms.app;
+				BASE_BUNDLE_IDENTIFIER = io.element.elementx;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -8706,10 +8706,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APP_DISPLAY_NAME = Realms;
-				APP_GROUP_IDENTIFIER = group.realms;
+				APP_GROUP_IDENTIFIER = group.io.element;
 				APP_NAME = ElementX;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = "colors/accent-color";
-				BASE_BUNDLE_IDENTIFIER = im.realms.app;
+				BASE_BUNDLE_IDENTIFIER = io.element.elementx;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;

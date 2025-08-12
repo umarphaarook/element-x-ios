@@ -1,7 +1,7 @@
 settings:
   APP_DISPLAY_NAME: Realms
   PRODUCTION_APP_NAME: Realms
-  APP_GROUP_IDENTIFIER: group.realms
-  BASE_BUNDLE_IDENTIFIER: im.realms.app
+  APP_GROUP_IDENTIFIER: group.io.element
+  BASE_BUNDLE_IDENTIFIER: io.element.elementx
   ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: "colors/accent-color"
   DEVELOPMENT_TEAM: 7J4U792NQT
