@@ -68,11 +68,11 @@ struct AuthenticationStartScreen: View {
             Spacer()
             
             VStack(spacing: 8) {
-                Text(L10n.screenOnboardingWelcomeTitle)
+                Text("Beyond Chat")
                     .font(.compound.headingLGBold)
                     .foregroundColor(.compound.textPrimary)
                     .multilineTextAlignment(.center)
-                Text(L10n.screenOnboardingWelcomeMessage(InfoPlistReader.main.productionAppName))
+                Text("Secure messaging, total server control, and powerful extensions for your business.")
                     .font(.compound.bodyLG)
                     .foregroundColor(.compound.textSecondary)
                     .multilineTextAlignment(.center)
@@ -90,6 +90,12 @@ struct AuthenticationStartScreen: View {
     /// The main action buttons.
     var buttons: some View {
         VStack(spacing: 16) {
+            Button { context.send(viewAction: .login) } label: {
+                Text("Sign in")
+            }
+            .buttonStyle(.compound(.primary))
+            .accessibilityIdentifier(A11yIdentifiers.authenticationStartScreen.signIn)
+            
             if context.viewState.showQRCodeLoginButton {
                 Button { context.send(viewAction: .loginWithQR) } label: {
                     Label(L10n.screenOnboardingSignInWithQrCode, icon: \.qrCode)
@@ -97,12 +103,6 @@ struct AuthenticationStartScreen: View {
                 .buttonStyle(.compound(.primary))
                 .accessibilityIdentifier(A11yIdentifiers.authenticationStartScreen.signInWithQr)
             }
-            
-            Button { context.send(viewAction: .login) } label: {
-                Text(context.viewState.loginButtonTitle)
-            }
-            .buttonStyle(.compound(.primary))
-            .accessibilityIdentifier(A11yIdentifiers.authenticationStartScreen.signIn)
             
             if context.viewState.showCreateAccountButton {
                 Button { context.send(viewAction: .register) } label: {
